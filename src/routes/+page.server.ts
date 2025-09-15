@@ -14,7 +14,6 @@ export const actions = {
 		const formData = await request.formData();
 		const username = formData.get('username') as string;
 		const topK = formData.get('top-k');
-		const strictUsername = formData.get('strict-username');
 
 		const endpoint = `${BACKEND_URL}/inference`;
 
@@ -23,8 +22,7 @@ export const actions = {
 				success: false,
 				error: message,
 				username,
-				topK,
-				strictUsername
+				topK
 			};
 		}
 
@@ -36,9 +34,9 @@ export const actions = {
 			username: username,
 			options: {
 				top_k: topK ? parseInt(topK.toString()) : 10,
-				strict_username: strictUsername === 'on' ? true : false
 			}
 		};
+		console.log(body)
 
 		try {
 			const response = await fetch(endpoint, {
@@ -48,13 +46,13 @@ export const actions = {
 				},
 				body: JSON.stringify(body)
 			});
+			const data: APIResponse = await response.json();
 
 			if (!response.ok) {
-				console.error('Error:', response.statusText);
-				return { success: false, error: response.statusText };
+				console.error('Error:', data.detail);
+				return fail(response.status, basicError(data.detail ?? response.statusText));
 			}
 
-			const data: APIResponse = await response.json();
 			console.log('Success:', data);
 			return { success: true, data: data.data };
 		} catch (error) {
