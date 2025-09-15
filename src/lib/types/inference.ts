@@ -1,6 +1,5 @@
 interface InferenceOptions {
 	top_k: number;
-	strict_username: boolean;
 }
 
 interface InferenceRequest {
@@ -106,6 +105,7 @@ interface Response {
 interface APIResponse {
 	message: string;
 	data: ScoredTweetList;
+	detail?: string;
 }
 
 export type { InferenceRequest, InferenceOptions, Response, ScoredTweet, ScoredTweetList, APIResponse };

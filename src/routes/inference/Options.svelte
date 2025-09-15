@@ -10,8 +10,4 @@
 		<input type="checkbox" id="descending" name="descending" checked={true} class="checkbox" />
 		Descending
 	</label>
-	<label class="label" for="strict-username">
-		<input type="checkbox" id="strict-username" name="strict-username" checked={false} class="checkbox" />
-		Strict matching username
-	</label>
 </fieldset>
