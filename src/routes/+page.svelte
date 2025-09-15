@@ -54,7 +54,7 @@
 		<div class="items-top flex w-full flex-row">
 			<Inference />
 			<div class="divider divider-horizontal"></div>
-			<div class="card grid h-20 w-32 place-items-center rounded-box bg-base-300">
+			<div class="card grid flex-1 place-items-center rounded-box bg-base-300">
 				{#if form && form.success}
 					<Display tweets={form.data} />
 				{:else if form && form.error}
