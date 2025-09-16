@@ -18,7 +18,7 @@
 	let { data, form } = $props<{ data: any; form: Response }>();
 </script>
 
-<main class="space-y-20 bg-zinc-800">
+<main class="bg-zinc-800">
 	<section class="hero flex min-h-screen items-center justify-center" title="hero section">
 		<div class="hero-content flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
@@ -43,10 +43,10 @@
 		</div>
 	</section>
 
-	<section class="gap-12 bg-zinc-100 min-h-screen" title="about">
-		<div class="items-center justify-center space-y-8 md:space-y-12 p-4 text-center sm:p-2 md:p-8">
+	<section class="min-h-screen gap-12 bg-zinc-100" title="about">
+		<div class="items-center justify-center space-y-8 p-4 text-center sm:p-2 md:space-y-12 md:p-8">
 			<h2 class="text-3xl font-extrabold text-zinc-800">About TRACE</h2>
-			<p class="mx-auto text-zinc-600 max-w-4xl">
+			<p class="mx-auto max-w-4xl text-zinc-600">
 				Online extremism is a growing challenge in the digital age, especially during times of
 				political and social movements. This project introduces a hybrid BERT-GNN framework designed
 				to detect extremist narratives and uncover relational patterns in <b>Black Lives Matter</b>
@@ -75,17 +75,19 @@
 	</section>
 
 	<!-- Inference -->
-	<section class="mx-auto max-w-4xl space-y-8">
-		<h2 class="text-3xl font-bold">Inference</h2>
-		<div class="items-top flex w-full flex-row">
-			<Inference />
-			<div class="divider divider-horizontal"></div>
-			<div class="card grid flex-1 place-items-center rounded-box bg-base-300">
-				{#if form && form.success}
-					<Display tweets={form.data} />
-				{:else if form && form.error}
-					<Error message={form.error} />
-				{/if}
+	<section class="bg-gray-100 p-4 text-zinc-800" title="inference">
+		<div class="mx-auto max-w-4xl mb-24 space-y-8">
+			<h2 class="text-3xl font-bold">Inference</h2>
+			<div class="items-top flex w-full flex-row">
+				<Inference />
+				<div class="divider divider-horizontal"></div>
+				<div class="card grid flex-1 place-items-center rounded-box bg-base-300">
+					{#if form && form.success}
+						<Display tweets={form.data} />
+					{:else if form && form.error}
+						<Error message={form.error} />
+					{/if}
+				</div>
 			</div>
 		</div>
 	</section>
