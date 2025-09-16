@@ -19,7 +19,7 @@
 </script>
 
 <main class="bg-zinc-800">
-	<section class="hero flex min-h-screen items-center justify-center" title="hero section">
+	<section class="hero flex min-h-screen items-center justify-center" title="hero section" id="home">
 		<div class="hero-content flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
 				<h1 class="text-7xl font-black">TRACE</h1>

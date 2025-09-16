@@ -1,6 +1,6 @@
 <div class="fixed z-10 navbar bg-zinc-800">
 	<div class="flex-1">
-		<a class="btn text-xl btn-ghost">TRACE</a>
+		<a class="btn text-xl btn-ghost" href="#home">TRACE</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
