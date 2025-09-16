@@ -8,6 +8,7 @@
 	import Error from '$lib/components/alerts/Error.svelte';
 	import SvgIcon from '$lib/components/SVGIcon.svelte';
 
+	import traceSVG from '$lib/assets/trace.svg?raw';
 	import arrowForwardSVG from '$lib/assets/material/arrow_forward.svg?raw';
 
 	import searchIMG from '$lib/assets/flaticon/search.png';
@@ -19,9 +20,16 @@
 </script>
 
 <main class="bg-zinc-800">
-	<section class="hero flex min-h-screen items-center justify-center" title="hero section" id="home">
+	<section
+		class="hero flex min-h-screen items-center justify-center"
+		title="hero section"
+		id="home"
+	>
 		<div class="hero-content flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
+				<div class="mb-4">
+					<SvgIcon size="5rem">{@html traceSVG}</SvgIcon>
+				</div>
 				<h1 class="text-7xl font-black">TRACE</h1>
 				<p class="py-6">
 					Textual and Relational Analysis of Community Extremism in BLM Twitter Using BERT and GNNs

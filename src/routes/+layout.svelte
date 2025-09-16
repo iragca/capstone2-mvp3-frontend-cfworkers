@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/trace-bg.svg';
 
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
 
@@ -9,6 +9,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>TRACE - Capstone 2</title>
 </svelte:head>
 
 <Navbar />

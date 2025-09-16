@@ -1,6 +1,13 @@
+<script lang="ts">
+	import SvgIcon from '../SVGIcon.svelte';
+	import logo from '$lib/assets/trace.svg?raw';
+</script>
+
 <div class="fixed z-10 navbar bg-zinc-800">
 	<div class="flex-1">
-		<a class="btn text-xl btn-ghost" href="#home">TRACE</a>
+		<a class="btn text-xl normal-case btn-ghost" href="#home">
+			<SvgIcon size="2rem">{@html logo}</SvgIcon>
+		</a>
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
