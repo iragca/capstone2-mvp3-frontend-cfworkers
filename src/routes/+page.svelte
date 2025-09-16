@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { Response } from '$lib/types/inference';
 
 	import Display from '$lib/components/display/Display.svelte';
@@ -34,7 +35,7 @@
 				<p class="py-6">
 					Textual and Relational Analysis of Community Extremism in BLM Twitter Using BERT and GNNs
 				</p>
-				<button class="btn btn-primary"
+				<button class="btn btn-primary" onclick={() => goto('#inference')}
 					>Try the Model
 
 					<SvgIcon size="2em">
