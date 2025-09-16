@@ -77,7 +77,7 @@
 	<!-- Inference -->
 	<section class="bg-gray-100 p-4 text-zinc-800" title="inference">
 		<div class="mx-auto max-w-4xl mb-24 space-y-8">
-			<h2 class="text-3xl font-bold">Inference</h2>
+			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
 			<div class="items-top flex w-full flex-row">
 				<Inference />
 				<div class="divider divider-horizontal"></div>
