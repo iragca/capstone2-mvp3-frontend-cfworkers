@@ -43,10 +43,10 @@
 		</div>
 	</section>
 
-	<section class="gap-12 bg-zinc-100" title="about">
-		<div class="items-center justify-center space-y-8 p-4 text-center sm:p-2 md:p-8">
+	<section class="gap-12 bg-zinc-100 min-h-screen" title="about">
+		<div class="items-center justify-center space-y-8 md:space-y-12 p-4 text-center sm:p-2 md:p-8">
 			<h2 class="text-3xl font-extrabold text-zinc-800">About TRACE</h2>
-			<p class="mx-auto text-zinc-600">
+			<p class="mx-auto text-zinc-600 max-w-4xl">
 				Online extremism is a growing challenge in the digital age, especially during times of
 				political and social movements. This project introduces a hybrid BERT-GNN framework designed
 				to detect extremist narratives and uncover relational patterns in <b>Black Lives Matter</b>
