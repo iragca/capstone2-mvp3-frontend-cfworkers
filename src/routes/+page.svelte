@@ -45,7 +45,11 @@
 
 	<section class="min-h-screen gap-12 bg-zinc-100" title="about">
 		<div class="items-center justify-center space-y-8 p-4 text-center sm:p-2 md:space-y-12 md:p-8">
-			<h2 class="text-3xl font-extrabold text-zinc-800">About TRACE</h2>
+			<h2
+				class="mx-auto max-w-fit bg-[url('custom/yellow-splash-art.png')] bg-cover bg-center p-4 text-3xl font-extrabold text-zinc-800"
+			>
+				About TRACE
+			</h2>
 			<p class="mx-auto max-w-4xl text-zinc-600">
 				Online extremism is a growing challenge in the digital age, especially during times of
 				political and social movements. This project introduces a hybrid BERT-GNN framework designed
@@ -76,7 +80,7 @@
 
 	<!-- Inference -->
 	<section class="bg-gray-100 p-4 text-zinc-800" title="inference">
-		<div class="mx-auto max-w-4xl mb-24 space-y-8">
+		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
 			<div class="items-top flex w-full flex-row">
 				<Inference />
