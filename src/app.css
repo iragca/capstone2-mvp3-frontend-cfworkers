@@ -6,9 +6,9 @@
   prefersdark: true; /* set as default dark mode (prefers-color-scheme:dark) */
   color-scheme: dark; /* color of browser-provided UI */
 
-  --color-base-100: oklch(98% 0.02 240);
-  --color-base-200: oklch(95% 0.03 240);
-  --color-base-300: oklch(92% 0.04 240);
+  --color-base-100: oklch(95% 0 0);
+  --color-base-200: oklch(90% 0 0);
+  --color-base-300: oklch(80% 0 0);
   --color-base-content: oklch(1 0 0);
   --color-primary: oklch(0.9045 0.1526 95.16);
   --color-primary-content: oklch(2% 0.01 240);

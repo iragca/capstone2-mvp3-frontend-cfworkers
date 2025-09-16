@@ -1,10 +1,18 @@
 <script lang="ts">
-	import Inference from './inference/Inference.svelte';
 	import type { Response } from '$lib/types/inference';
+
 	import Display from './display/Display.svelte';
-	import SvgIcon from '$lib/components/SVGIcon.svelte';
-	import arrowForwardSVG from '$lib/assets/material/arrow_forward.svg?raw';
+	import Inference from './inference/Inference.svelte';
+
+	import CenteredCard from '$lib/components/cards/CenteredCard.svelte';
 	import Error from '$lib/components/alerts/Error.svelte';
+	import SvgIcon from '$lib/components/SVGIcon.svelte';
+
+	import arrowForwardSVG from '$lib/assets/material/arrow_forward.svg?raw';
+
+	import searchIMG from '$lib/assets/flaticon/search.png';
+	import policyIMG from '$lib/assets/flaticon/policy.png';
+	import influenceIMG from '$lib/assets/flaticon/influence.png';
 
 	let graph_container: HTMLDivElement;
 	let { data, form } = $props<{ data: any; form: Response }>();
@@ -35,10 +43,10 @@
 		</div>
 	</section>
 
-	<section class="mx-auto grid gap-12 bg-zinc-100 md:grid-cols-2" title="about">
-		<div class="items-center justify-center space-y-8 p-8 text-center">
-			<h2 class="text-3xl font-bold font-extrabold text-zinc-800">About TRACE</h2>
-			<p class="text-gray-600">
+	<section class="gap-12 bg-zinc-100" title="about">
+		<div class="items-center justify-center space-y-8 p-4 text-center sm:p-2 md:p-8">
+			<h2 class="text-3xl font-extrabold text-zinc-800">About TRACE</h2>
+			<p class="mx-auto text-zinc-600">
 				Online extremism is a growing challenge in the digital age, especially during times of
 				political and social movements. This project introduces a hybrid BERT-GNN framework designed
 				to detect extremist narratives and uncover relational patterns in <b>Black Lives Matter</b>
@@ -46,20 +54,23 @@
 				network analysis to provide actionable insights for researchers, policymakers, and advocacy
 				groups.
 			</p>
-			<div class="flex h-40 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
-				[ Chart ]
-			</div>
-			<div class="flex h-24 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
-				[ Diagram ]
-			</div>
-		</div>
-		<div class="space-y-4">
-			<div class="flex h-32 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
-				[ Sidebar Content ]
-			</div>
-			<div class="flex h-32 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
-				[ Extra Details ]
-			</div>
+			<g class="flex flex-col items-center gap-4 md:flex-row md:justify-center">
+				<CenteredCard
+					title="Researchers"
+					imageUrl={searchIMG}
+					description="Analyze extremist discourse trends with classification results and interaction graphs."
+				/>
+				<CenteredCard
+					title="Policy Analysts"
+					imageUrl={policyIMG}
+					description="Identify extremist clusters, influential accounts, and risky narratives for policy insights."
+				/>
+				<CenteredCard
+					title="Citizen / Journalists"
+					imageUrl={influenceIMG}
+					description="Understand extremist influence patterns through clear, visualized networks."
+				/>
+			</g>
 		</div>
 	</section>
 
