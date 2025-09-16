@@ -56,7 +56,7 @@
 			>
 				{@render objective(
 					1,
-					evaluationIMG,
+					sortingIMG,
 					'Develop and validate a tweet classification pipeline.',
 					'Manually labeled tweets (Extremist / Non-extremist) were used to fine-tune a BERT model to produce robust content labels across the dataset.'
 				)}
@@ -68,7 +68,7 @@
 				)}
 				{@render objective(
 					3,
-					sortingIMG,
+					evaluationIMG,
 					'Evaluate model performance and robustness.',
 					'Measure performance with metrics and run ablation studies to compare GNN configurations.'
 				)}
