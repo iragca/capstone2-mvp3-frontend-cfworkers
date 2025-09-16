@@ -43,7 +43,7 @@
 		</div>
 	</section>
 
-	<section class="min-h-screen gap-12 bg-zinc-100" title="about">
+	<section class="gap-12 bg-zinc-100" title="about">
 		<div class="items-center justify-center space-y-8 p-4 text-center sm:p-2 md:space-y-12 md:p-8">
 			<h2
 				class="mx-auto max-w-fit bg-[url('custom/yellow-splash-art.png')] bg-cover bg-center p-4 text-3xl font-extrabold text-zinc-800"
