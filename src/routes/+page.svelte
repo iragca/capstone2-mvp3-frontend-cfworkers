@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Response } from '$lib/types/inference';
 
-	import Display from './display/Display.svelte';
-	import Inference from './inference/Inference.svelte';
+	import Display from '$lib/components/display/Display.svelte';
+	import Inference from '$lib/components/inference/Inference.svelte';
 
 	import CenteredCard from '$lib/components/cards/CenteredCard.svelte';
 	import Error from '$lib/components/alerts/Error.svelte';
