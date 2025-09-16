@@ -2,21 +2,29 @@
 	import Inference from './inference/Inference.svelte';
 	import type { Response } from '$lib/types/inference';
 	import Display from './display/Display.svelte';
+	import SvgIcon from '$lib/components/SVGIcon.svelte';
+	import arrowForwardSVG from '$lib/assets/material/arrow_forward.svg?raw';
+	import Error from '$lib/components/alerts/Error.svelte';
 
 	let graph_container: HTMLDivElement;
 	let { data, form } = $props<{ data: any; form: Response }>();
 </script>
 
-<main class="space-y-20 p-8">
-	<section class="hero flex min-h-screen items-center justify-center bg-base-200">
+<main class="space-y-20 bg-zinc-800">
+	<section class="hero flex min-h-screen items-center justify-center" title="hero section">
 		<div class="hero-content flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
-				<h1 class="text-5xl font-bold">Hello there</h1>
+				<h1 class="text-7xl font-black">TRACE</h1>
 				<p class="py-6">
-					Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-					exercitationem quasi.
+					Textual and Relational Analysis of Community Extremism in BLM Twitter Using BERT and GNNs
 				</p>
-				<button class="btn btn-primary">Start Inference</button>
+				<button class="btn btn-primary"
+					>Try the Model
+
+					<SvgIcon size="2em">
+						{@html arrowForwardSVG}
+					</SvgIcon>
+				</button>
 			</div>
 			<div
 				class="flex flex-1 items-center justify-center rounded-lg bg-gray-100"
@@ -27,10 +35,17 @@
 		</div>
 	</section>
 
-	<section class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-		<div class="space-y-4">
-			<h2 class="text-3xl font-bold">Study Details</h2>
-			<p class="text-gray-600">Some description about the study goes here.</p>
+	<section class="mx-auto grid gap-12 bg-zinc-100 md:grid-cols-2" title="about">
+		<div class="items-center justify-center space-y-8 p-8 text-center">
+			<h2 class="text-3xl font-bold font-extrabold text-zinc-800">About TRACE</h2>
+			<p class="text-gray-600">
+				Online extremism is a growing challenge in the digital age, especially during times of
+				political and social movements. This project introduces a hybrid BERT-GNN framework designed
+				to detect extremist narratives and uncover relational patterns in <b>Black Lives Matter</b>
+				discussions on <b>X, formerly Twitter</b>. Our system bridges text classification and
+				network analysis to provide actionable insights for researchers, policymakers, and advocacy
+				groups.
+			</p>
 			<div class="flex h-40 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
 				[ Chart ]
 			</div>
@@ -58,22 +73,7 @@
 				{#if form && form.success}
 					<Display tweets={form.data} />
 				{:else if form && form.error}
-					<div role="alert" class="alert alert-error">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-6 w-6 shrink-0 stroke-current"
-							fill="none"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-							/>
-						</svg>
-						<span>{form.error}</span>
-					</div>
+					<Error message={form.error} />
 				{/if}
 			</div>
 		</div>
