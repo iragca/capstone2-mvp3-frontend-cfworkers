@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/trace-bg.svg';
 
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
+	import Footer from '$lib/components/navigation/Footer.svelte';
 
 	let { children } = $props();
 </script>
@@ -14,3 +15,4 @@
 
 <Navbar />
 {@render children?.()}
+<Footer />
