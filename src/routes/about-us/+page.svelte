@@ -34,17 +34,19 @@
 
 <main class="bg-zinc-100 text-zinc-800">
 	<section
-		class="flex min-h-screen flex-1 flex-row flex-wrap items-center justify-center gap-8 p-4 md:p-12"
+		class="flex min-h-screen p-4 md:p-12"
 	>
-		{#each authors as author}
-			<AuthorCard name={author.name} badge={author.badge} description={author.description}>
-				{#if author.slug?.github}
-					<GithubBtn slug={author.slug.github} />
-				{/if}
-				{#if author.slug?.linkedin}
-					<LinkedInBtn slug={author.slug.linkedin} />
-				{/if}
-			</AuthorCard>
-		{/each}
+		<div class="flex flex-1 flex-row flex-wrap items-center justify-center gap-4 h-fit mt-16">
+			{#each authors as author}
+				<AuthorCard name={author.name} badge={author.badge} description={author.description}>
+					{#if author.slug?.github}
+						<GithubBtn slug={author.slug.github} />
+					{/if}
+					{#if author.slug?.linkedin}
+						<LinkedInBtn slug={author.slug.linkedin} />
+					{/if}
+				</AuthorCard>
+			{/each}
+		</div>
 	</section>
 </main>
