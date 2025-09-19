@@ -1,15 +1,16 @@
-/**
- * Wrap @mentions and #hashtags in <span> elements
- * @param text - The tweet text
- * @returns string - HTML string with wrapped spans
- */
 export function formatTweet(text: string): string {
 	return (
 		text
-			// Wrap mentions (@username)
-			.replace(/(@\w+)/g, `<span class="text-blue-600">$1</span>`)
-			// Wrap hashtags (#hashtag)
-			.replace(/(#\w+)/g, `<span class="text-blue-600">$1</span>`)
+			// Mentions → https://x.com/username
+			.replace(
+				/@(\w+)/g,
+				`<a href="https://x.com/$1" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">@$1</a>`
+			)
+			// Hashtags → https://x.com/hashtag/hashtag
+			.replace(
+				/#(\w+)/g,
+				`<a href="https://x.com/hashtag/$1" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">#$1</a>`
+			)
 	);
 }
 
