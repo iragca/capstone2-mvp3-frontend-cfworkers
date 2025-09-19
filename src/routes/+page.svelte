@@ -18,8 +18,19 @@
 	import influenceIMG from '$lib/assets/flaticon/influence.png';
 	import Sample from '$lib/components/graph/HeroGraph.svelte';
 
+	let loading = $state(false);
+
+	type Update = (opts?: { reset?: boolean; invalidateAll?: boolean }) => Promise<void>;
+	function handleEnhance() {
+		loading = true;
+		return async ({ update }: { update: Update }) => {
+			loading = false;
+			await update({ reset: false, invalidateAll: false });
+		};
+	}
+
 	let graph_container: HTMLDivElement;
-	let { data, form } = $props<{ data: any; form: Response }>();
+	let { form } = $props<{ form: Response }>();
 </script>
 
 <main class="bg-zinc-800">
@@ -94,17 +105,32 @@
 		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
 			<div class="items-top flex w-full flex-row">
-				<form method="POST" use:enhance>
-					<Inference />
+				<form method="POST" use:enhance={handleEnhance}>
+					<Inference {loading} />
 				</form>
 				<div class="divider divider-horizontal"></div>
-				<div class="card grid flex-1 place-items-center rounded-box bg-base-300">
-					{#if form && form.success}
-						<Display tweets={form.data} />
-					{:else if form && form.error}
-						<Error message={form.error} />
-					{/if}
-				</div>
+				{#if loading}
+					<div class="flex w-full flex-col gap-4">
+						<div class="flex items-center gap-4">
+							<div class="h-16 w-16 shrink-0 skeleton rounded-full"></div>
+							<div class="flex flex-col gap-4">
+								<div class="h-4 w-20 skeleton"></div>
+								<div class="h-4 w-28 skeleton"></div>
+							</div>
+						</div>
+						<div class="h-32 w-full skeleton"></div>
+					</div>
+				{:else}
+					<div class="card grid flex-1 place-items-center rounded-box bg-zinc-300">
+						{#if form && form.success}
+							<Display tweets={form.data} />
+						{:else if form && form.error}
+							<Error message={form.error} />
+						{:else}
+							Try the model by entering a X / Twitter handle!
+						{/if}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</section>
