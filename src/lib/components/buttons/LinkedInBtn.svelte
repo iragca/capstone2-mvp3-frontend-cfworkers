@@ -1,10 +1,10 @@
 <script lang="ts">
-	let { url } = $props<{ url: string }>();
+	let { slug } = $props<{ slug: string }>();
 </script>
 
 <a
 	class="btn border-[#0059b3] bg-[#0967C2] text-white"
-	href={url}
+	href={`https://linkedin.com/in/${slug}`}
 	target="_blank"
 	rel="noopener noreferrer"
 	aria-label="LinkedIn profile"

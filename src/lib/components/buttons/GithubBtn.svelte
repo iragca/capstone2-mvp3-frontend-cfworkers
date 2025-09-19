@@ -1,10 +1,10 @@
 <script lang="ts">
-	let { url } = $props<{ url: string }>();
+	let { slug } = $props<{ slug: string }>();
 </script>
 
 <a
 	class="btn border-black bg-black text-white"
-	href={url}
+	href={`https://github.com/${slug}`}
 	target="_blank"
 	rel="noopener noreferrer"
 	aria-label="GitHub profile"

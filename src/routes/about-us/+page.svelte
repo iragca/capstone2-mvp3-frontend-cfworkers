@@ -12,19 +12,20 @@
 		},
 		{
 			name: 'Chris Andrei Irag',
-			badge: 'Lead Developer',
+			description:
+				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
+			slug: {
+				github: 'iragca',
+				linkedin: 'chris-andrei-irag'
+			}
+		},
+		{
+			name: 'Dane Casey Casiño',
 			description:
 				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
 		},
 		{
-			name: 'Karylle Dela Cruz',
-			badge: 'First Author',
-			description:
-				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
-		},
-		{
-			name: 'Chris Andrei Irag',
-			badge: 'Lead Developer',
+			name: 'Usher Raymond Abainza',
 			description:
 				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
 		}
@@ -33,14 +34,16 @@
 
 <main class="bg-zinc-100 text-zinc-800">
 	<section
-		class="flex min-h-screen flex-1 flex-col items-center justify-center gap-8 p-4 md:flex-row md:p-12"
+		class="flex min-h-screen flex-1 flex-row flex-wrap items-center justify-center gap-8 p-4 md:p-12"
 	>
-		<div class="h-12 md:h-0"></div>
-
 		{#each authors as author}
 			<AuthorCard name={author.name} badge={author.badge} description={author.description}>
-				<LinkedInBtn url="https://linkedin.com" />
-				<GithubBtn url="https://github.com" />
+				{#if author.slug?.github}
+					<GithubBtn slug={author.slug.github} />
+				{/if}
+				{#if author.slug?.linkedin}
+					<LinkedInBtn slug={author.slug.linkedin} />
+				{/if}
 			</AuthorCard>
 		{/each}
 	</section>
