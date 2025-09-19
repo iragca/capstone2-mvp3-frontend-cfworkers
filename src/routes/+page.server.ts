@@ -46,6 +46,7 @@ export const actions = {
 				},
 				body: JSON.stringify(body)
 			});
+			console.log(response.status)
 			const data: APIResponse = await response.json();
 
 			if (!response.ok) {
