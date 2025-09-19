@@ -30,11 +30,13 @@
 				<div class="badge text-nowrap badge-primary">{badge}</div>
 			{/if}
 		</h2>
-		<p>
-			{description}
-		</p>
-		<div class="card-actions justify-end">
-			{@render children?.()}
+		<div class="flex flex-row justify-between">
+			<p class="max-w-2/3 text-sm text-zinc-600">
+				{description}
+			</p>
+			<div class="card-actions justify-end">
+				{@render children?.()}
+			</div>
 		</div>
 	</div>
 </div>
