@@ -14,6 +14,7 @@ export const actions = {
 		const formData = await request.formData();
 		const username = formData.get('username') as string;
 		const topK = formData.get('top-k');
+		const descending = formData.get('descending') === 'on';
 
 		const endpoint = `${BACKEND_URL}/inference`;
 
@@ -22,7 +23,8 @@ export const actions = {
 				success: false,
 				error: message,
 				username,
-				topK
+				topK,
+				descending
 			};
 		}
 
@@ -33,7 +35,8 @@ export const actions = {
 		const body: InferenceRequest = {
 			username: username,
 			options: {
-				top_k: topK ? parseInt(topK.toString()) : 10
+				top_k: topK ? parseInt(topK.toString()) : 10,
+				descending: descending
 			}
 		};
 		console.log(body);

@@ -1,6 +1,7 @@
 import type { Tweet } from './nodes';
 interface InferenceOptions {
 	top_k: number;
+	descending: boolean;
 }
 
 interface InferenceRequest {
