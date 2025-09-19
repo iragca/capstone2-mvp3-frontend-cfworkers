@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { enhance } from '$app/forms';
 	import type { Response } from '$lib/types/inference';
 
 	import Display from '$lib/components/display/Display.svelte';
@@ -93,7 +94,9 @@
 		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
 			<div class="items-top flex w-full flex-row">
-				<Inference />
+				<form method="POST" use:enhance>
+					<Inference />
+				</form>
 				<div class="divider divider-horizontal"></div>
 				<div class="card grid flex-1 place-items-center rounded-box bg-base-300">
 					{#if form && form.success}
