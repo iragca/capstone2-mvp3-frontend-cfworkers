@@ -33,20 +33,33 @@
 </script>
 
 <main class="bg-zinc-100 text-zinc-800">
-	<section
-		class="flex min-h-screen p-4 md:p-12"
-	>
-		<div class="flex flex-1 flex-row flex-wrap items-center justify-center gap-4 h-fit mt-16">
-			{#each authors as author}
-				<AuthorCard name={author.name} badge={author.badge} description={author.description}>
-					{#if author.slug?.github}
-						<GithubBtn slug={author.slug.github} />
-					{/if}
-					{#if author.slug?.linkedin}
-						<LinkedInBtn slug={author.slug.linkedin} />
-					{/if}
-				</AuthorCard>
-			{/each}
+	<section class="flex min-h-screen p-8">
+		<div class="mx-auto flex flex-col items-center md:flex-row md:gap-24">
+			<article class="mx-auto mt-16">
+				<h1 class="mb-4 text-4xl font-bold">About Us</h1>
+				<p class="max-w-2xl text-justify">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+					been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+					a galley of type and scrambled it to make a type specimen book. It has survived not only
+					five centuries, but also the leap into electronic typesetting, remaining essentially
+					unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+					Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+					PageMaker including versions of Lorem Ipsum.
+				</p>
+			</article>
+			<ul class="list mt-16 h-fit rounded-box bg-base-100 shadow-md">
+				<li class="p-4 pb-2 text-xs tracking-wide opacity-60">Authors</li>
+				{#each authors as author}
+					<AuthorCard name={author.name} description={author.description} badge={author.badge}>
+						{#if author.slug?.github}
+							<GithubBtn slug={author.slug.github} />
+						{/if}
+						{#if author.slug?.linkedin}
+							<LinkedInBtn slug={author.slug.linkedin} />
+						{/if}
+					</AuthorCard>
+				{/each}
+			</ul>
 		</div>
 	</section>
 </main>
