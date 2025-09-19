@@ -33,10 +33,10 @@ export const actions = {
 		const body: InferenceRequest = {
 			username: username,
 			options: {
-				top_k: topK ? parseInt(topK.toString()) : 10,
+				top_k: topK ? parseInt(topK.toString()) : 10
 			}
 		};
-		console.log(body)
+		console.log(body);
 
 		try {
 			const response = await fetch(endpoint, {
@@ -46,10 +46,17 @@ export const actions = {
 				},
 				body: JSON.stringify(body)
 			});
-			console.log(response.status)
+
+			if (response.status > 500) {
+				return fail(
+					response.status,
+					basicError(`Error ${response.status}: ${response.statusText}`)
+				);
+			}
+
 			const data: APIResponse = await response.json();
 
-			if (!response.ok) {
+			if (response.status > 400) {
 				console.error('Error:', data.detail);
 				return fail(response.status, basicError(data.detail ?? response.statusText));
 			}
