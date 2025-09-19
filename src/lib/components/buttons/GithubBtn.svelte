@@ -3,7 +3,7 @@
 </script>
 
 <a
-	class="btn border-black bg-black text-white"
+	class="btn h-8 w-8 border-black bg-black p-0 text-white hover:bg-zinc-800"
 	href={`https://github.com/${slug}`}
 	target="_blank"
 	rel="noopener noreferrer"

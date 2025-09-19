@@ -3,7 +3,7 @@
 </script>
 
 <a
-	class="btn border-[#0059b3] bg-[#0967C2] text-white"
+	class="btn h-8 w-8 border-[#0059b3] bg-[#0967C2] p-0 text-white hover:bg-[#0059b3]"
 	href={`https://linkedin.com/in/${slug}`}
 	target="_blank"
 	rel="noopener noreferrer"
