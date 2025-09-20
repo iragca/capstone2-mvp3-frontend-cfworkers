@@ -9,6 +9,7 @@
 </script>
 
 <svelte:head>
+	<script src="https://kit.fontawesome.com/7fb30aba59.js" crossorigin="anonymous"></script>
 	<link rel="icon" href={favicon} />
 	<title>TRACE - Capstone 2</title>
 </svelte:head>
