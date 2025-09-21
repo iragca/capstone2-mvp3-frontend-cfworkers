@@ -1,4 +1,4 @@
-import type { Tweet } from './nodes';
+import type { Tweet, User } from './nodes';
 interface InferenceOptions {
 	top_k: number;
 	descending: boolean;
@@ -23,6 +23,7 @@ interface Response {
 interface APIResponse {
 	message: string;
 	data: ScoredTweetList;
+	user: User;
 	detail?: string;
 }
 

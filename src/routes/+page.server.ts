@@ -65,7 +65,7 @@ export const actions = {
 			}
 
 			console.log('Success:', data);
-			return { success: true, data: data.data };
+			return { success: true, data: data.data, user: data.user };
 		} catch (error) {
 			console.error('Fetch error:', error);
 			return fail(500, basicError('Internal Server Error'));

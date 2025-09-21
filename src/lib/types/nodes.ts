@@ -42,6 +42,12 @@ export interface User {
 	/** Profile description (bio). */
 	description: string;
 
+	/** URL of the user’s profile image. */
+	profile_image_url?: string;
+
+	/** URL of the user’s profile banner image. */
+	profile_banner_url?: string;
+
 	/** Fetch status of this user’s profile. */
 	status?: 'fetched' | 'not fetched' | 'fetching' | '';
 
