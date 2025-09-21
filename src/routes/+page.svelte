@@ -6,6 +6,7 @@
 	import Display from '$lib/components/display/Display.svelte';
 	import Inference from '$lib/components/inference/Inference.svelte';
 
+	import UserCard from '$lib/components/cards/UserCard.svelte';
 	import CenteredCard from '$lib/components/cards/CenteredCard.svelte';
 	import Error from '$lib/components/alerts/Error.svelte';
 	import SvgIcon from '$lib/components/SVGIcon.svelte';
@@ -104,11 +105,15 @@
 	<section class="bg-gray-100 p-4 text-zinc-800" title="inference">
 		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
-			<div class="items-top flex w-full flex-row">
-				<form method="POST" use:enhance={handleEnhance}>
-					<Inference {loading} />
-				</form>
-				<div class="divider divider-horizontal"></div>
+			<div class="items-top flex w-full flex-col gap-8 h-fit">
+				<div class="flex gap-8">
+					<form method="POST" use:enhance={handleEnhance}>
+						<Inference {loading} />
+					</form>
+					{#if form && form.success}
+						<UserCard user={form.user} />
+					{/if}
+				</div>
 				{#if loading}
 					<div class="flex w-full flex-col gap-4">
 						<div class="flex items-center gap-4">
@@ -121,7 +126,7 @@
 						<div class="h-32 w-full skeleton"></div>
 					</div>
 				{:else}
-					<div class="card grid flex-1 place-items-center rounded-box bg-zinc-300">
+					<div class="card grid flex-1 place-items-center rounded-box bg-zinc-300 min-h-12">
 						{#if form && form.success}
 							<Display tweets={form.data} />
 						{:else if form && form.error}

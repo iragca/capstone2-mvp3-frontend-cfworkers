@@ -7,7 +7,15 @@
 </script>
 
 <div class="flex h-fit flex-row gap-4">
-	<img src={faker.image.avatarGitHub()} alt="Profile" class="mb-2 h-12 w-12 rounded-full" />
+	{#if user.profile_image_url}
+		<img
+			src={user.profile_image_url.replace('_normal', '')}
+			alt="Profile"
+			class="mb-2 h-12 w-12 rounded-full"
+		/>
+	{:else}
+		<img src={faker.image.avatarGitHub()} alt="Profile" class="mb-2 h-12 w-12 rounded-full" />
+	{/if}
 	<div class="mb-2 flex flex-col">
 		<span class="font-bold">
 			<a
