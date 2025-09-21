@@ -12,6 +12,8 @@
 	import ProbabilityBadge from '../badges/ProbabilityBadge.svelte';
 
 	import { categorizeScore, formatTweet } from '$lib/utils/tweet';
+	import DateBadge from '../badges/DateBadge.svelte';
+	import DeviceBadge from '../badges/DeviceBadge.svelte';
 
 	let { item: tweet }: { item: ScoredTweet } = $props();
 
@@ -24,6 +26,16 @@
 		<ProbabilityBadge score={tweet.score.toFixed(3)} category={categorizeScore(tweet.score)} />
 	</div>
 	<p>{@html formatTweet(tweet.node.text)}</p>
+
+	<div class="mt-2">
+		<DateBadge date={tweet.node.creation_date} />
+
+		{#if tweet.node.source !== undefined && tweet.node.source !== '' && tweet.node.source !== null}
+			<span class="text-sm text-zinc-500">•</span>
+			<DeviceBadge device={tweet.node.source} />
+		{/if}
+	</div>
+	<div class="h-0.5 bg-zinc-200"></div>
 	<div class="flex justify-around">
 		<CommentBadge num={tweet.node.reply_count ?? 0} />
 		<RepostBadge num={tweet.node.retweet_count ?? 0} />
