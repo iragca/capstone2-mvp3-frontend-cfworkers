@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { faker } from '@faker-js/faker';
 	import type { User } from '$lib/types/nodes';
 	import verifiedIMG from '$lib/assets/flaticon/verified.png';
 
@@ -14,7 +13,11 @@
 			class="mb-2 h-12 w-12 rounded-full"
 		/>
 	{:else}
-		<img src={faker.image.avatarGitHub()} alt="Profile" class="mb-2 h-12 w-12 rounded-full" />
+		<div class="avatar avatar-placeholder">
+			<div class="w-12 h-12 rounded-full bg-neutral text-neutral-content">
+				<span class="text-xs">{user.username ? user.username.charAt(0).toUpperCase() : '?'}</span>
+			</div>
+		</div>
 	{/if}
 	<div class="mb-2 flex flex-col">
 		<span class="font-bold">
