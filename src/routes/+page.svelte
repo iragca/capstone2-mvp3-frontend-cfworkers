@@ -42,10 +42,10 @@
 	>
 		<div class="hero-content flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
-				<div class="mb-4">
+				<div class="mb-4 text-primary">
 					<SvgIcon size="5rem">{@html traceSVG}</SvgIcon>
 				</div>
-				<h1 class="text-7xl font-black">TRACE</h1>
+				<h1 class="text-7xl font-black text-primary">TRACE</h1>
 				<p class="py-6">
 					Textual and Relational Analysis of Community Extremism in BLM Twitter Using BERT and GNNs
 				</p>
@@ -105,7 +105,7 @@
 	<section class="bg-gray-100 p-4 text-zinc-800" title="inference">
 		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
-			<div class="items-top flex w-full flex-col gap-8 h-fit">
+			<div class="items-top flex h-fit w-full flex-col gap-8">
 				<div class="flex gap-8">
 					<form method="POST" use:enhance={handleEnhance}>
 						<Inference {loading} />
@@ -126,7 +126,7 @@
 						<div class="h-32 w-full skeleton"></div>
 					</div>
 				{:else}
-					<div class="card grid flex-1 place-items-center rounded-box bg-zinc-300 min-h-12">
+					<div class="card grid min-h-12 flex-1 place-items-center rounded-box bg-zinc-300">
 						{#if form && form.success}
 							<Display tweets={form.data} />
 						{:else if form && form.error}

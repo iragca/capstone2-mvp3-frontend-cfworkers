@@ -5,7 +5,7 @@
 
 <div class="fixed z-10 navbar bg-zinc-800">
 	<div class="flex-1">
-		<a class="btn gap-4 text-xl normal-case btn-ghost" href="/#home">
+		<a class="btn gap-4 text-xl text-primary normal-case btn-ghost font-black" href="/#home">
 			<SvgIcon size="2rem">{@html logo}</SvgIcon>
 			TRACE
 		</a>

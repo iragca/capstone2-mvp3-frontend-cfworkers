@@ -16,7 +16,7 @@
 	const colorStyle = `color: ${color};`;
 </script>
 
-<div class="svg-icon" aria-label={alt} style="width: {size}; height: {size}; {colorStyle}">
+<div class="svg-icon" aria-label={alt} style="width: {size}; height: {size};">
 	{@render children()}
 </div>
 
