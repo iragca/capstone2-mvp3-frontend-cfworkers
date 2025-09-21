@@ -8,5 +8,12 @@
 	<label class="label font-bold text-zinc-800" for="username">X / Twitter handle</label>
 	<input type="text" class="input" id="username" name="username" placeholder="elonmusk" required />
 	<Options />
-	<button class="btn mt-4 btn-primary" type="submit">{loading ? 'Loading...' : 'Submit'}</button>
+
+	{#if loading}
+		<button class="btn mt-4 btn-primary" aria-label="Submitting">
+			<span class="loading loading-spinner"></span>
+		</button>
+	{:else}
+		<button class="btn mt-4 btn-primary" type="submit">Submit</button>
+	{/if}
 </fieldset>
