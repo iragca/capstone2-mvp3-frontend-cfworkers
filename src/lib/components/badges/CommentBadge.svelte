@@ -3,6 +3,6 @@
 	let { num }: { num: number } = $props();
 </script>
 
-<BaseBadge>
+<BaseBadge tooltip="Replies">
 	<i class="fa-regular fa-comment"></i>{num}
 </BaseBadge>

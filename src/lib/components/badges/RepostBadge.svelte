@@ -3,6 +3,6 @@
 	let { num }: { num: number } = $props();
 </script>
 
-<BaseBadge>
+<BaseBadge tooltip="Reposts">
 	<i class="fa-solid fa-retweet"></i>{num}
 </BaseBadge>

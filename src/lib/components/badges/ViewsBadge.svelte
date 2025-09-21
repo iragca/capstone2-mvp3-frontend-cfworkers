@@ -3,6 +3,6 @@
 	let { num }: { num: number } = $props();
 </script>
 
-<BaseBadge>
+<BaseBadge tooltip="Views">
 	<i class="fa-solid fa-chart-simple"></i>{num}
 </BaseBadge>

@@ -29,6 +29,7 @@
 		<RepostBadge num={tweet.node.retweet_count ?? 0} />
 		<LikesBadge num={tweet.node.favorite_count ?? 0} />
 		<ViewsBadge num={tweet.node.views ?? 0} />
+
 		<OpenTweetBadge url={tweet.node.status_link} />
 	</div>
 </li>
