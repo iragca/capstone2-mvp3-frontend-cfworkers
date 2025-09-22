@@ -1,7 +1,7 @@
 <script lang="ts">
 	import UserOfTweet from '../other/UserOfTweet.svelte';
 
-	import type { User } from '$lib/types/tweets';
+	import type { User } from '$lib/types/nodes';
 
 	import type { ScoredTweet } from '$lib/types';
 	import CommentBadge from '../badges/CommentBadge.svelte';
