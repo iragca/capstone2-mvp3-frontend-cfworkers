@@ -1,7 +1,7 @@
 <script lang="ts">
 	import UserOfTweet from '../other/UserOfTweet.svelte';
 
-	import type { User } from '$lib/types/nodes';
+	import type { User } from '$lib/types/tweets';
 
 	import type { ScoredTweet } from '$lib/types';
 	import CommentBadge from '../badges/CommentBadge.svelte';
@@ -15,33 +15,33 @@
 	import DateBadge from '../badges/DateBadge.svelte';
 	import DeviceBadge from '../badges/DeviceBadge.svelte';
 
-	let { item: tweet }: { item: ScoredTweet } = $props();
+	let { item }: { item: ScoredTweet } = $props();
 
-	let user = tweet.node.user_id as User;
+	let user = item.tweet.user_id as User;
 </script>
 
 <li class="card gap-2 bg-zinc-100 p-4">
 	<div class="flex">
 		<UserOfTweet {user} />
-		<ProbabilityBadge score={tweet.score.toFixed(3)} category={categorizeScore(tweet.score)} />
+		<ProbabilityBadge score={item.score.toFixed(3)} category={categorizeScore(item.score)} />
 	</div>
-	<p>{@html formatTweet(tweet.node.text)}</p>
+	<p>{@html formatTweet(item.tweet.text)}</p>
 
 	<div class="mt-2">
-		<DateBadge date={tweet.node.creation_date} />
+		<DateBadge date={item.tweet.creation_date} />
 
-		{#if tweet.node.source !== undefined && tweet.node.source !== '' && tweet.node.source !== null}
+		{#if item.tweet.source !== undefined && item.tweet.source !== '' && item.tweet.source !== null}
 			<span class="text-sm text-zinc-500">•</span>
-			<DeviceBadge device={tweet.node.source} />
+			<DeviceBadge device={item.tweet.source} />
 		{/if}
 	</div>
 	<div class="h-0.5 bg-zinc-200"></div>
 	<div class="flex justify-around">
-		<CommentBadge num={tweet.node.reply_count ?? 0} />
-		<RepostBadge num={tweet.node.retweet_count ?? 0} />
-		<LikesBadge num={tweet.node.favorite_count ?? 0} />
-		<ViewsBadge num={tweet.node.views ?? 0} />
+		<CommentBadge num={item.tweet.reply_count ?? 0} />
+		<RepostBadge num={item.tweet.retweet_count ?? 0} />
+		<LikesBadge num={item.tweet.favorite_count ?? 0} />
+		<ViewsBadge num={item.tweet.views ?? 0} />
 
-		<OpenTweetBadge url={tweet.node.status_link} />
+		<OpenTweetBadge url={item.tweet.status_link} />
 	</div>
 </li>

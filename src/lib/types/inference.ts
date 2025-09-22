@@ -10,7 +10,7 @@ interface InferenceRequest {
 }
 
 type ScoredTweet = {
-	node: Tweet;
+	tweet: Tweet;
 	score: number;
 };
 type ScoredTweetList = ArrayLike<ScoredTweet>;
