@@ -23,7 +23,10 @@
 <li class="card gap-2 bg-zinc-100 p-4">
 	<div class="flex">
 		<UserOfTweet {user} />
-		<ProbabilityBadge score={item.score.toFixed(3)} category={categorizeScore(item.score)} />
+		<ProbabilityBadge
+			score={`${(item.score * 100).toFixed(2)}%`}
+			category={categorizeScore(item.score)}
+		/>
 	</div>
 	<p>{@html formatTweet(item.tweet.text)}</p>
 
