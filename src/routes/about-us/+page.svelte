@@ -4,6 +4,7 @@
 	import AuthorCard from '$lib/components/cards/AuthorCard.svelte';
 
 	import iragcaIMG from '$lib/assets/authors/iragca.png';
+	import daneIMG from '$lib/assets/authors/dane.jpg';
 
 	let authors = [
 		{
@@ -25,7 +26,12 @@
 		{
 			name: 'Dane Casey Casiño',
 			description:
-				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
+				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
+			imageUrl: daneIMG,
+			slug: {
+				github: 'Danecash',
+				linkedin: 'dane-casey-c-casino-305760364'
+			}
 		},
 		{
 			name: 'Usher Raymond Abainza',

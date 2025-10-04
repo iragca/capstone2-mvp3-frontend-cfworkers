@@ -16,7 +16,7 @@
 	}>();
 </script>
 
-<li class="list-row w-fit flex">
+<li class="list-row flex">
 	<div>
 		<img
 			class="size-10 rounded-box object-cover"
