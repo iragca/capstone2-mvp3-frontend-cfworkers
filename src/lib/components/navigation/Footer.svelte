@@ -1,22 +1,16 @@
 <footer class="footer bg-neutral p-10 text-neutral-content sm:footer-horizontal">
 	<nav>
-		<h6 class="footer-title">Services</h6>
-		<a class="link link-hover">Branding</a>
-		<a class="link link-hover">Design</a>
-		<a class="link link-hover">Marketing</a>
-		<a class="link link-hover">Advertisement</a>
+		<h6 class="footer-title">Research</h6>
+		<a class="link link-hover">Paper</a>
+		<a class="link link-hover" href="https://github.com/iragca/capstone-project-2">Source Code</a>
 	</nav>
 	<nav>
-		<h6 class="footer-title">Company</h6>
-		<a class="link link-hover">About us</a>
-		<a class="link link-hover">Contact</a>
-		<a class="link link-hover">Jobs</a>
-		<a class="link link-hover">Press kit</a>
+		<h6 class="footer-title">Authors</h6>
+		<a class="link link-hover" href="/about-us">About us</a>
+		<a class="link link-hover" href="/about-us">Contact</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Legal</h6>
-		<a class="link link-hover">Terms of use</a>
-		<a class="link link-hover">Privacy policy</a>
-		<a class="link link-hover">Cookie policy</a>
+		<a class="link link-hover">Plagiarism Certificate</a>
 	</nav>
 </footer>
