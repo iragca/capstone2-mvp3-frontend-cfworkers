@@ -6,7 +6,7 @@
 		name,
 		description,
 		badge = undefined,
-		imageUrl = undefined
+		imageUrl = "https://img.daisyui.com/images/profile/demo/1@94.webp"
 	} = $props<{
 		children: Snippet;
 		name: string;
@@ -19,8 +19,8 @@
 <li class="list-row w-fit flex">
 	<div>
 		<img
-			class="size-10 rounded-box"
-			src="https://img.daisyui.com/images/profile/demo/1@94.webp"
+			class="size-10 rounded-box object-cover"
+			src={imageUrl}
 			alt={`author: ${name} `}
 		/>
 	</div>

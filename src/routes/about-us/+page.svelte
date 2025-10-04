@@ -3,6 +3,8 @@
 	import LinkedInBtn from '$lib/components/buttons/LinkedInBtn.svelte';
 	import AuthorCard from '$lib/components/cards/AuthorCard.svelte';
 
+	import iragcaIMG from '$lib/assets/authors/iragca.png';
+
 	let authors = [
 		{
 			name: 'Karylle Dela Cruz',
@@ -14,6 +16,7 @@
 			name: 'Chris Andrei Irag',
 			description:
 				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
+			imageUrl: iragcaIMG,
 			slug: {
 				github: 'iragca',
 				linkedin: 'chris-andrei-irag'
@@ -50,7 +53,12 @@
 			<ul class="list mt-16 h-fit rounded-box bg-base-100 shadow-md">
 				<li class="p-4 pb-2 text-xs tracking-wide opacity-60">Authors</li>
 				{#each authors as author}
-					<AuthorCard name={author.name} description={author.description} badge={author.badge}>
+					<AuthorCard
+						name={author.name}
+						description={author.description}
+						badge={author.badge}
+						imageUrl={author.imageUrl}
+					>
 						{#if author.slug?.github}
 							<GithubBtn slug={author.slug.github} />
 						{/if}
