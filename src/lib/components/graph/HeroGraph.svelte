@@ -4,7 +4,19 @@
 	import type { SimulationNodeDatum, SimulationLinkDatum, Simulation, D3DragEvent } from 'd3';
 	import userSVG from '$lib/assets/font-awesome/circle-user.svg?raw';
 
+	let { lightmode = false } = $props<{ lightmode?: boolean }>();
+
 	let svgEl: SVGSVGElement;
+
+	let theme = {
+		userColor: lightmode ? '#000000' : '#FFDE59',
+		tweetColor: lightmode ? '#FF5733' : 'tomato',
+		linkColor: lightmode ? '#AAAAAA' : '#999999',
+		textColor: lightmode ? '#27272A' : '#EEEEEE',
+		probabilityColor: lightmode ? '#555555' : 'gray',
+		backgroundColor: lightmode ? 'bg-amber-300' : 'bg-zinc-800'
+	};
+
 
 	interface Node extends SimulationNodeDatum {
 		id: string; // your ID
@@ -74,12 +86,7 @@
 
 		link.filter((d) => matchesPotentialLink(d)).attr('stroke-dasharray', '4 2'); // 4px dash, 2px gap
 
-		const node = svg
-			.append('g')
-			.selectAll('g')
-			.data(nodes)
-			.join('g')
-			.call(drag(simulation));
+		const node = svg.append('g').selectAll('g').data(nodes).join('g').call(drag(simulation));
 
 		const users = node
 			.filter((d) => d.id.startsWith('@'))
@@ -92,7 +99,7 @@
 			.attr('height', 24)
 			.attr('x', -12)
 			.attr('y', -12)
-			.attr('fill', '#FFDE59');
+			.attr('fill', theme.userColor);
 
 		node
 			.filter((d) => d.id.startsWith('Tweet'))
@@ -101,7 +108,7 @@
 			.attr('y', -12)
 			.attr('width', 24)
 			.attr('height', 24)
-			.attr('fill', 'tomato');
+			.attr('fill', theme.tweetColor);
 
 		const label = svg
 			.append('g')
@@ -112,7 +119,7 @@
 			.attr('font-size', 12)
 			.attr('dy', 25)
 			.attr('dx', -20)
-			.attr('fill', '#EEEEEE');
+			.attr('fill', theme.textColor);
 
 		const linkLabel = svg
 			.append('g')
@@ -121,7 +128,7 @@
 			.join('text')
 			.text((d) => d3.randomInt(1, 100)() + '%')
 			.attr('font-size', 12)
-			.attr('fill', 'gray')
+			.attr('fill', theme.probabilityColor)
 			.attr('dx', 8)
 			.attr('text-anchor', 'right');
 
@@ -168,4 +175,4 @@
 	});
 </script>
 
-<svg bind:this={svgEl} {width} {height} class="overflow-visible bg-zinc-800"></svg>
+<svg bind:this={svgEl} {width} {height} class="overflow-visible {theme.backgroundColor}"></svg>

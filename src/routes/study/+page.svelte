@@ -9,6 +9,7 @@
 	import databaseIMG from '$lib/assets/flaticon/data-server.png';
 	import cogsIMG from '$lib/assets/flaticon/cogs.png';
 	import layerIMG from '$lib/assets/flaticon/layer.png';
+	import HeroGraph from '$lib/components/graph/HeroGraph.svelte';
 </script>
 
 {#snippet objective(number, imageUrl, title, description)}
@@ -47,11 +48,9 @@
 <main class="bg-zinc-800 text-zinc-800">
 	<section class="hero min-h-screen bg-amber-300">
 		<div class="hero-content flex-col sm:gap-12 md:gap-24 lg:flex-row">
-			<img
-				src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-				class="max-w-2xl rounded-lg shadow-2xl"
-				alt="hero"
-			/>
+			<div class="flex flex-1 items-center justify-center rounded-lg bg-gray-100">
+				<HeroGraph lightmode={true} />
+			</div>
 			<div>
 				<h1 class="text-5xl font-bold">Background</h1>
 				<p class="max-w-2xl py-6">
