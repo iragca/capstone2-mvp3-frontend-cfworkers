@@ -17,7 +17,7 @@
 	import searchIMG from '$lib/assets/flaticon/search.png';
 	import policyIMG from '$lib/assets/flaticon/policy.png';
 	import influenceIMG from '$lib/assets/flaticon/influence.png';
-	import Sample from '$lib/components/graph/HeroGraph.svelte';
+	import HeroGraph from '$lib/components/graph/HeroGraph.svelte';
 
 	let loading = $state(false);
 
@@ -61,7 +61,7 @@
 				class="flex flex-1 items-center justify-center rounded-lg bg-gray-100"
 				bind:this={graph_container}
 			>
-				<Sample />
+				<HeroGraph />
 			</div>
 		</div>
 	</section>

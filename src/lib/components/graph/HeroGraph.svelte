@@ -18,12 +18,12 @@
 		target: string | Node;
 	}
 
-	const nodes: Node[] = [{ id: 'Alice' }, { id: 'Bob' }, { id: 'Carol' }, { id: 'Dave' }];
+	const nodes: Node[] = [{ id: 'Tweet' }, { id: '@bob' }, { id: '@carol' }, { id: '@dave' }];
 
 	const links: Link[] = [
-		{ source: 'Alice', target: 'Bob' },
-		{ source: 'Alice', target: 'Carol' },
-		{ source: 'Bob', target: 'Dave' }
+		{ source: '@bob', target: 'Tweet' },
+		{ source: '@carol', target: 'Tweet' },
+		{ source: '@dave', target: 'Tweet' }
 	];
 
 	onMount(() => {
@@ -53,16 +53,33 @@
 			.join('line')
 			.attr('stroke-width', 2);
 
+		link
+			.filter((d) => (d.source as Node).id === '@dave' && (d.target as Node).id === 'Tweet')
+			.attr('stroke-dasharray', '4 2'); // 4px dash, 2px gap
+
 		const node = svg
 			.append('g')
 			.attr('stroke', '#fff')
 			.attr('stroke-width', 1.5)
-			.selectAll('circle')
+			.selectAll('g')
 			.data(nodes)
-			.join('circle')
-			.attr('r', 10)
-			.attr('fill', 'steelblue')
+			.join('g')
 			.call(drag(simulation));
+
+		node
+			.filter((d) => d.id !== 'Tweet')
+			.append('circle')
+			.attr('r', 10)
+			.attr('fill', '#FFDE59');
+
+		node
+			.filter((d) => d.id === 'Tweet')
+			.append('rect')
+			.attr('x', -12) // center it around (x,y)
+			.attr('y', -12)
+			.attr('width', 24)
+			.attr('height', 24)
+			.attr('fill', 'tomato');
 
 		const label = svg
 			.append('g')
@@ -71,18 +88,48 @@
 			.join('text')
 			.text((d: Node) => d.id)
 			.attr('font-size', 12)
-			.attr('dy', -15);
+			.attr('dy', -15)
+			.attr('fill', 'white');
+
+		const linkLabel = svg
+			.append('g')
+			.selectAll('text')
+			.data(
+				links.filter(
+					(d) =>
+						typeof d.source !== 'string' &&
+						d.source.id === '@dave' &&
+						typeof d.target !== 'string' &&
+						d.target.id === 'Tweet'
+				)
+			)
+			.join('text')
+			.text((d) => '0.5')
+			.attr('font-size', 10)
+			.attr('fill', 'white')
+			.attr('text-anchor', 'right');
 
 		simulation.on('tick', () => {
 			link
-				.attr('x1', (d: Link) => (typeof d.source === 'string' ? 0 : d.source.x))
-				.attr('y1', (d: Link) => (typeof d.source === 'string' ? 0 : d.source.y))
-				.attr('x2', (d: Link) => (typeof d.target === 'string' ? 0 : d.target.x))
-				.attr('y2', (d: Link) => (typeof d.target === 'string' ? 0 : d.target.y));
+				.attr('x1', (d) => d.source.x)
+				.attr('y1', (d) => d.source.y)
+				.attr('x2', (d) => d.target.x)
+				.attr('y2', (d) => d.target.y);
 
-			node.attr('cx', (d: Node) => d.x).attr('cy', (d: Node) => d.y);
-
-			label.attr('x', (d: Node) => d.x).attr('y', (d: Node) => d.y);
+			// Position whole <g> instead of individual shapes
+			node.attr('transform', (d) => `translate(${d.x},${d.y})`);
+			label.attr('x', (d) => d.x).attr('y', (d) => d.y);
+			linkLabel
+				.attr('x', (d) => {
+					const x1 = typeof d.source === 'string' ? 0 : d.source.x;
+					const x2 = typeof d.target === 'string' ? 0 : d.target.x;
+					return (x1 + x2) / 2;
+				})
+				.attr('y', (d) => {
+					const y1 = typeof d.source === 'string' ? 0 : d.source.y;
+					const y2 = typeof d.target === 'string' ? 0 : d.target.y;
+					return (y1 + y2) / 2;
+				});
 		});
 
 		function drag(simulation: Simulation) {
