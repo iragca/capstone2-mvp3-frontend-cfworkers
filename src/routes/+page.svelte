@@ -30,7 +30,6 @@
 		};
 	}
 
-	let graph_container: HTMLDivElement;
 	let { form } = $props<{ form: Response }>();
 </script>
 
@@ -57,10 +56,7 @@
 					</SvgIcon>
 				</button>
 			</div>
-			<div
-				class="flex flex-1 items-center justify-center rounded-lg bg-gray-100"
-				bind:this={graph_container}
-			>
+			<div class="flex flex-1 items-center justify-center rounded-lg bg-gray-100">
 				<HeroGraph />
 			</div>
 		</div>
