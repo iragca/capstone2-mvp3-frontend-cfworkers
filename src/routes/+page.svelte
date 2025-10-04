@@ -40,7 +40,7 @@
 		title="hero section"
 		id="home"
 	>
-		<div class="hero-content flex flex-col gap-12 md:flex-row mt-20">
+		<div class="hero-content mt-20 flex flex-col gap-12 md:flex-row">
 			<div class="max-w-md">
 				<div class="mb-4 text-primary">
 					<SvgIcon size="5rem">{@html traceSVG}</SvgIcon>
@@ -106,7 +106,7 @@
 		<div class="mx-auto mb-24 max-w-4xl space-y-8">
 			<h2 class="text-3xl font-bold" id="inference">Inference</h2>
 			<div class="items-top flex h-fit w-full flex-col gap-8">
-				<div class="flex gap-8">
+				<div class="flex flex-col gap-8 md:flex-row">
 					<form method="POST" use:enhance={handleEnhance}>
 						<Inference {loading} />
 					</form>
@@ -126,13 +126,17 @@
 						<div class="h-32 w-full skeleton"></div>
 					</div>
 				{:else}
-					<div class="card grid min-h-12 flex-1 place-items-center rounded-box bg-zinc-300">
+					<div
+						class="card grid min-h-12 flex-1 place-items-center justify-center rounded-box bg-zinc-300"
+					>
 						{#if form && form.success}
 							<Display tweets={form.data} />
 						{:else if form && form.error}
 							<Error message={form.error} />
 						{:else}
-							Try the model by entering a X / Twitter handle!
+							<span class="p-4 text-zinc-500">
+								Try the model by entering a X / Twitter handle!
+							</span>
 						{/if}
 					</div>
 				{/if}
