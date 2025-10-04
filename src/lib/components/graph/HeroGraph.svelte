@@ -19,13 +19,32 @@
 		target: string | Node;
 	}
 
-	const nodes: Node[] = [{ id: 'Tweet' }, { id: '@bob' }, { id: '@carol' }, { id: '@dave' }];
+	const nodes: Node[] = [
+		{ id: 'Tweet1' },
+		{ id: 'Tweet2' },
+		{ id: '@bob' },
+		{ id: '@carol' },
+		{ id: '@dave' }
+	];
 
 	const links: Link[] = [
-		{ source: '@bob', target: 'Tweet' },
-		{ source: '@carol', target: 'Tweet' },
-		{ source: '@dave', target: 'Tweet' }
+		{ source: '@bob', target: 'Tweet1' },
+		{ source: '@carol', target: 'Tweet1' },
+		{ source: '@dave', target: 'Tweet1' },
+		{ source: '@carol', target: 'Tweet2' }
 	];
+
+	const potentialLinks: Link[] = [
+		{ source: '@dave', target: 'Tweet1' },
+		{ source: '@carol', target: 'Tweet1' }
+	];
+
+	const matchesPotentialLink = (d: Link) =>
+		potentialLinks.some(
+			(pl) =>
+				(typeof d.source !== 'string' ? d.source.id : d.source) === pl.source &&
+				(typeof d.target !== 'string' ? d.target.id : d.target) === pl.target
+		);
 
 	const width = 200;
 	const height = 400;
@@ -53,21 +72,17 @@
 			.join('line')
 			.attr('stroke-width', 2);
 
-		link
-			.filter((d) => (d.source as Node).id === '@dave' && (d.target as Node).id === 'Tweet')
-			.attr('stroke-dasharray', '4 2'); // 4px dash, 2px gap
+		link.filter((d) => matchesPotentialLink(d)).attr('stroke-dasharray', '4 2'); // 4px dash, 2px gap
 
 		const node = svg
 			.append('g')
-			.attr('stroke', '#fff')
-			.attr('stroke-width', 1.5)
 			.selectAll('g')
 			.data(nodes)
 			.join('g')
 			.call(drag(simulation));
 
 		const users = node
-			.filter((d) => d.id !== 'Tweet')
+			.filter((d) => d.id.startsWith('@'))
 			.append('g')
 			.html(userSVG);
 
@@ -80,7 +95,7 @@
 			.attr('fill', '#FFDE59');
 
 		node
-			.filter((d) => d.id === 'Tweet')
+			.filter((d) => d.id.startsWith('Tweet'))
 			.append('rect')
 			.attr('x', -12) // center it around (x,y)
 			.attr('y', -12)
@@ -102,19 +117,11 @@
 		const linkLabel = svg
 			.append('g')
 			.selectAll('text')
-			.data(
-				links.filter(
-					(d) =>
-						typeof d.source !== 'string' &&
-						d.source.id === '@dave' &&
-						typeof d.target !== 'string' &&
-						d.target.id === 'Tweet'
-				)
-			)
+			.data(links.filter((d) => matchesPotentialLink(d)))
 			.join('text')
-			.text((d) => '0.5')
+			.text((d) => d3.randomInt(1, 100)() + '%')
 			.attr('font-size', 12)
-			.attr('fill', 'white')
+			.attr('fill', 'gray')
 			.attr('dx', 8)
 			.attr('text-anchor', 'right');
 
