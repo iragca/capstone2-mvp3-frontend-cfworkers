@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
 	import type { SimulationNodeDatum, SimulationLinkDatum, Simulation, D3DragEvent } from 'd3';
+	import userSVG from '$lib/assets/font-awesome/circle-user.svg?raw';
 
 	let svgEl: SVGSVGElement;
 
@@ -65,10 +66,17 @@
 			.join('g')
 			.call(drag(simulation));
 
-		node
+		const users = node
 			.filter((d) => d.id !== 'Tweet')
-			.append('circle')
-			.attr('r', 10)
+			.append('g')
+			.html(userSVG);
+
+		users
+			.select('svg')
+			.attr('width', 24)
+			.attr('height', 24)
+			.attr('x', -12)
+			.attr('y', -12)
 			.attr('fill', '#FFDE59');
 
 		node
@@ -87,8 +95,9 @@
 			.join('text')
 			.text((d: Node) => d.id)
 			.attr('font-size', 12)
-			.attr('dy', -15)
-			.attr('fill', 'white');
+			.attr('dy', 25)
+			.attr('dx', -20)
+			.attr('fill', '#EEEEEE');
 
 		const linkLabel = svg
 			.append('g')
@@ -104,8 +113,9 @@
 			)
 			.join('text')
 			.text((d) => '0.5')
-			.attr('font-size', 10)
+			.attr('font-size', 12)
 			.attr('fill', 'white')
+			.attr('dx', 8)
 			.attr('text-anchor', 'right');
 
 		simulation.on('tick', () => {
@@ -151,4 +161,4 @@
 	});
 </script>
 
-<svg bind:this={svgEl} {width} {height} class="bg-zinc-800 overflow-visible"></svg>
+<svg bind:this={svgEl} {width} {height} class="overflow-visible bg-zinc-800"></svg>
