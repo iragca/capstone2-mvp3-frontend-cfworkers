@@ -40,7 +40,7 @@
 		title="hero section"
 		id="home"
 	>
-		<div class="hero-content flex flex-col gap-12 md:flex-row">
+		<div class="hero-content flex flex-col gap-12 md:flex-row mt-20">
 			<div class="max-w-md">
 				<div class="mb-4 text-primary">
 					<SvgIcon size="5rem">{@html traceSVG}</SvgIcon>
