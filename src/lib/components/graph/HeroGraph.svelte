@@ -26,10 +26,9 @@
 		{ source: '@dave', target: 'Tweet' }
 	];
 
+	const width = 200;
+	const height = 400;
 	onMount(() => {
-		const width = 600;
-		const height = 400;
-
 		const svg = d3.select(svgEl);
 
 		const simulation = d3
@@ -152,4 +151,4 @@
 	});
 </script>
 
-<svg bind:this={svgEl} width="600" height="400" class="bg-zinc-800"></svg>
+<svg bind:this={svgEl} {width} {height} class="bg-zinc-800 overflow-visible"></svg>
