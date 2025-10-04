@@ -99,8 +99,9 @@
 			.attr('height', 24)
 			.attr('x', -12)
 			.attr('y', -12)
-			.attr('fill', theme.userColor);
-
+			.attr('fill', theme.userColor)
+			.style('pointer-events', 'all');
+;
 		node
 			.filter((d) => d.id.startsWith('Tweet'))
 			.append('rect')
