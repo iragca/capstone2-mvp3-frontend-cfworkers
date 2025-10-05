@@ -5,13 +5,20 @@
 
 	import iragcaIMG from '$lib/assets/authors/iragca.png';
 	import daneIMG from '$lib/assets/authors/dane.jpg';
+	import karylleIMG from '$lib/assets/authors/karylle.jpg';
+	import usherIMG from '$lib/assets/authors/usher.jpg';
 
 	let authors = [
 		{
 			name: 'Karylle Dela Cruz',
 			badge: 'First Author',
 			description:
-				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
+				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
+			imageUrl: karylleIMG,
+			slug: {
+				github: 'kardcy',
+				linkedin: 'karylle-dela-cruz-7601b3318'
+			}
 		},
 		{
 			name: 'Chris Andrei Irag',
@@ -36,7 +43,8 @@
 		{
 			name: 'Usher Raymond Abainza',
 			description:
-				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.'
+				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
+			imageUrl: usherIMG,
 		}
 	];
 </script>
