@@ -51,7 +51,7 @@
 			<div class="flex flex-1 items-center justify-center rounded-lg bg-gray-100">
 				<HeroGraph lightmode={true} />
 			</div>
-			<div>
+			<div class="p-8">
 				<h1 class="text-5xl font-bold">Background</h1>
 				<p class="max-w-2xl py-6">
 					Online extremist narratives can polarize communities and amplify misinformation.
