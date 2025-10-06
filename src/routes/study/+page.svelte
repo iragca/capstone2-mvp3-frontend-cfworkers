@@ -30,7 +30,7 @@
 {#snippet methodology(imageUrl, title, description)}
 	<li class="items-left flex max-w-xs flex-col p-8">
 		<img class="mx-auto size-32 rounded-box" src={imageUrl} alt="objective: {title}" />
-		<svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" class="mt-8">
+		<svg width="100%" height="40" xmlns="http://www.w3.org/2000/svg" class="mt-8 overflow-visible">
 			<!-- Circle 1 -->
 			<circle cx="5%" cy="25" r="10" fill="black" />
 			<!-- Line 1 -->
@@ -74,7 +74,7 @@
 				Objectives
 			</h1>
 			<ul
-				class="mx-auto flex w-fit justify-center gap-8 overflow-x-auto rounded-box bg-base-100 p-4 shadow-md"
+				class="mx-auto flex w-fit justify-center gap-8 overflow-x-auto rounded-box bg-base-100 p-4 shadow-md flex-col md:flex-row"
 			>
 				{@render objective(
 					1,
