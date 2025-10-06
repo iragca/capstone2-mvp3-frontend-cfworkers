@@ -24,9 +24,9 @@ export function formatTweet(text: string): string {
  * - 'Medium' otherwise.
  */
 export function categorizeScore(score: number): string {
-	if (score > 0.65) {
+	if (score > 0.70) {
 		return 'High';
-	} else if (score < 0.35) {
+	} else if (score < 0.30) {
 		return 'Low';
 	} else {
 		return 'Medium';
