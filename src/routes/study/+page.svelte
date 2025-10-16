@@ -74,7 +74,7 @@
 				Objectives
 			</h1>
 			<ul
-				class="mx-auto flex w-fit justify-center gap-8 overflow-x-auto rounded-box bg-base-100 p-4 shadow-md flex-col md:flex-row"
+				class="mx-auto flex w-fit flex-col justify-center gap-8 overflow-x-auto rounded-box bg-base-100 p-4 shadow-md md:flex-row"
 			>
 				{@render objective(
 					1,
@@ -108,6 +108,46 @@
 				{@render methodology(layerIMG, 'BERT-GNN', 'insert text here')}
 				{@render methodology(analysisIMG, 'Evaluation & Deployment', 'insert text here')}
 			</ul>
+		</div>
+	</section>
+	<section class="flex min-h-screen flex-col items-center justify-center gap-12" title="results">
+		<h1 class="mx-auto max-w-fit p-4 text-3xl font-extrabold text-zinc-300">Results</h1>
+		<div
+			class="max-w-2xl overflow-x-auto rounded-box border border-base-content/5 bg-base-100 p-8 shadow-md"
+		>
+			<table class="table">
+				<!-- head -->
+				<thead>
+					<tr class="text-zinc-800">
+						<th></th>
+						<th>Accuracy</th>
+						<th>Precision</th>
+						<th>Recall</th>
+						<th>F1 Score</th>
+						<th>PR AUC</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- row 1 -->
+					<tr>
+						<th>GCN</th>
+						<td>0.71</td>
+						<td>0.471</td>
+						<td>0.567</td>
+						<td>0.508</td>
+						<td>0.758</td>
+					</tr>
+					<!-- row 2 -->
+					<tr>
+						<th>GraphSAGE</th>
+						<td>0.887</td>
+						<td>0.815</td>
+						<td>0.999</td>
+						<td>0.898</td>
+						<td>0.925</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</section>
 </main>
