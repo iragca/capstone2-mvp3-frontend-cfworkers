@@ -103,10 +103,26 @@
 			<ul
 				class="mx-auto flex w-fit flex-col justify-center gap-8 overflow-x-auto rounded-box bg-transparent md:flex-row"
 			>
-				{@render methodology(databaseIMG, 'Data Collection', 'insert text here')}
-				{@render methodology(cogsIMG, 'Data Preprocessing', 'insert text here')}
-				{@render methodology(layerIMG, 'BERT-GNN', 'insert text here')}
-				{@render methodology(analysisIMG, 'Evaluation & Deployment', 'insert text here')}
+				{@render methodology(
+					databaseIMG,
+					'Data Collection',
+					'Collect data using RapidAPI APIs or scraping tools like Tweety'
+				)}
+				{@render methodology(
+					cogsIMG,
+					'Data Preprocessing',
+					'Clean and preprocess the collected data to ensure quality and consistency.'
+				)}
+				{@render methodology(
+					layerIMG,
+					'BERT-GNN',
+					'Use the BERT model to output labels then feed them into the GNN for training and link prediction.'
+				)}
+				{@render methodology(
+					analysisIMG,
+					'Evaluation & Deployment',
+					'Evaluate the model performance and deploy it for real-time analysis.'
+				)}
 			</ul>
 		</div>
 	</section>
