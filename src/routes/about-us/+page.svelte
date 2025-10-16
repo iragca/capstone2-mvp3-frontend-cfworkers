@@ -44,7 +44,7 @@
 			name: 'Usher Raymond Abainza',
 			description:
 				'John is the lead developer of the TRACE project, specializing in backend development and data analysis.',
-			imageUrl: usherIMG,
+			imageUrl: usherIMG
 		}
 	];
 </script>
@@ -53,15 +53,15 @@
 	<section class="flex min-h-screen p-8">
 		<div class="mx-auto flex flex-col items-center md:flex-row md:gap-24">
 			<article class="mx-auto mt-16">
-				<h1 class="mb-4 text-4xl font-bold">About Us</h1>
+				<h1 class="mb-4 text-4xl font-bold">About us</h1>
 				<p class="max-w-2xl text-justify">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-					been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-					a galley of type and scrambled it to make a type specimen book. It has survived not only
-					five centuries, but also the leap into electronic typesetting, remaining essentially
-					unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-					Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-					PageMaker including versions of Lorem Ipsum.
+					We are a team of four dedicated data science students from the University of Science and
+					Technology of Southern Philippines. This project is our capstone endeavor, where we aim to
+					leverage our skills to make a meaningful impact. Our focus is on developing innovative
+					solutions to address the challenges posed by online extremism, particularly within the
+					context of social media platforms like Twitter. Through this project, we aspire to
+					contribute to a safer and more informed online community by identifying and mitigating
+					extremist narratives.
 				</p>
 			</article>
 			<ul class="list mt-16 h-fit rounded-box bg-base-100 shadow-md">
