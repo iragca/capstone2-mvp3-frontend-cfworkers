@@ -126,10 +126,13 @@
 			</ul>
 		</div>
 	</section>
-	<section class="flex min-h-screen flex-col items-center justify-center gap-12" title="results">
-		<h1 class="mx-auto max-w-fit p-4 text-3xl font-extrabold text-zinc-300">Results</h1>
+	<section
+		class="flex min-h-screen flex-col items-center justify-center gap-8 pt-8 pb-8"
+		title="results"
+	>
+		<h1 class="max-w-fit p-4 text-3xl font-extrabold text-zinc-300">Results</h1>
 		<div
-			class="max-w-2xl overflow-x-auto rounded-box border border-base-content/5 bg-base-100 p-8 shadow-md"
+			class="max-w-2xl overflow-x-auto rounded-box border border-base-content/5 bg-base-100 p-4 pr-8 pl-8 shadow-md"
 		>
 			<table class="table">
 				<!-- head -->
@@ -165,5 +168,15 @@
 				</tbody>
 			</table>
 		</div>
+		<p class="max-w-2xl px-8 text-justify text-zinc-300">
+			The GraphSAGE model achieved the highest overall performance, with an accuracy of 0.887,
+			F1-score of 0.898, and PR-AUC of 0.925, indicating strong capability in correctly identifying
+			both positive and negative links within the graph. Its recall score of 0.999 suggests that
+			nearly all true positive links were successfully detected, though the slightly lower precision
+			(0.815) indicates a modest number of false positives. This behavior implies that GraphSAGE
+			effectively generalizes the contextual and relational features learned from the BERT
+			HateXplain embeddings, capturing fine-grained semantic cues and user–tweet relationships
+			within the network.
+		</p>
 	</section>
 </main>
