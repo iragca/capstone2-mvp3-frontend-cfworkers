@@ -69,7 +69,7 @@
 	<section class="min-h-screen gap-12 bg-zinc-100" title="objectives">
 		<div class="items-left justify-left space-y-8 p-4 text-left sm:p-2 md:space-y-12 md:p-8">
 			<h1
-				class="max-w-fit bg-[url('custom/yellow-splash-art.png')] bg-cover bg-center p-4 text-3xl font-extrabold text-zinc-800"
+				class="max-w-fit bg-[url('/custom/yellow-splash-art.png')] bg-cover bg-center p-4 text-3xl font-extrabold text-zinc-800"
 			>
 				Objectives
 			</h1>
