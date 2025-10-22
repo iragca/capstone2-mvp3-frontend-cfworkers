@@ -14,7 +14,7 @@
 		linkColor: lightmode ? '#AAAAAA' : '#999999',
 		textColor: lightmode ? '#27272A' : '#EEEEEE',
 		probabilityColor: lightmode ? '#555555' : 'gray',
-		backgroundColor: lightmode ? 'bg-amber-300' : 'bg-zinc-800'
+		backgroundColor: lightmode ? 'bg-amber-300' : 'none'
 	};
 
 

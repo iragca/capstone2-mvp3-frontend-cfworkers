@@ -35,7 +35,7 @@
 
 <main class="bg-zinc-800">
 	<section
-		class="hero flex min-h-screen items-center justify-center"
+		class="hero flex min-h-screen items-center justify-center bg-[#999] bg-blend-multiply bg-cover bg-no-repeat bg-[url('custom/bg.jpg')]"
 		title="hero section"
 		id="home"
 	>
@@ -56,7 +56,7 @@
 					</SvgIcon>
 				</button>
 			</div>
-			<div class="flex flex-1 items-center justify-center rounded-lg bg-gray-100">
+			<div class="flex flex-1 items-center justify-center rounded-lg">
 				<HeroGraph />
 			</div>
 		</div>
